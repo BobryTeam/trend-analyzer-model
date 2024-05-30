@@ -5,7 +5,7 @@ from datetime import datetime
 from metrics import Metrics
 
 class TrendAnalyzerModel:
-    def __init__(self, metrics: list[Metrics] = [], freq: str = '5min', days: int = 14):
+    def __init__(self, metrics: list[Metrics], freq: str = '5min', days: int = 14):
         self.days = days
         self.freq = freq
 
