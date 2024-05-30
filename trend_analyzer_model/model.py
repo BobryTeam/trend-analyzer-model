@@ -5,7 +5,7 @@ from datetime import datetime
 from metrics import Metrics
 
 class TrendAnalyzerModel:
-    def __init__(self, model_file: str, metrics: list[Metrics], freq: str = '5min', days: int = 14):
+    def __init__(self, metrics: list[Metrics] = [], freq: str = '5min', days: int = 14):
         self.days = days
         self.freq = freq
 
@@ -40,11 +40,9 @@ class TrendAnalyzerModel:
         return forecast_cpu.values[0], forecast_memory.values[0], forecast_network.values[0]
 
     # Метод для запуска обновления и предсказания модели
-
-
-def analyze(self, new_metrics: list[Metrics]):
-    self.update_model(new_metrics)
-    cpu, ram, net = self.get_predict()
-    ram /= self.df['ram_load'].max()
-    return cpu, ram, net
+    def analyze(self, new_metrics: list[Metrics]):
+        self.update_model(new_metrics)
+        cpu, ram, net = self.get_predict()
+        ram /= self.df['ram_load'].max()
+        return cpu, ram, net
 
